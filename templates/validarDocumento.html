@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="min-width: 560px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Validador de Historia Laboral</title>
+		</script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jsf.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jquery.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/richfaces.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/richfaces-queue.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/richfaces-base-component.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/status.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/richfaces-event.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jquery.hotkeys.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/hotkey.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/poll.js') }}"></script>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/reset.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/960.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/fonts.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/IE.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/Style.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/overrideRichfaces.css') }}" />
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='validador/tooltipster.css') }}" />
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/Util.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jquery.maskedinput-1.4.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/TagUtilities.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/Date.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/JqueryMasks.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jquery.autotab.min.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jquery.blockUI.js') }}"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='validador/jquery.tooltipster.min.js') }}"></script></head><body>
+
+<form id="frmBasico" name="frmBasico">
+<input type="hidden" name="frmBasico" value="frmBasico">
+<span id="frmBasico:j_idt26">
+				</span>				
+			<div class="wrap">
+				<div class="container_7">				
+					<div class="grid_7 alpha">
+						<div class="blockConten"><div id="frmBasico:errores"></div>					
+		<table class="tableTop">
+			<tbody><tr>
+				<th><em>*</em><strong>Código Verificador</strong></th>
+				<td>
+			<span id="frmBasico:codigoVerificador" style="white-space:nowrap"><input id="codigo1" type="text" name="frmBasico:codigoVerificador:codigo1" class="Normal w30 codVerificador" maxlength="4"> - <input id="codigo2" type="text" name="frmBasico:codigoVerificador:codigo2" class="Normal w30 codVerificador" maxlength="4"> - <input id="codigo3" type="text" name="frmBasico:codigoVerificador:codigo3" class="Normal w30 codVerificador" maxlength="4">
+			</span>
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em><strong>Documento de Identidad</strong></th>
+				<td><input id="documento" type="text" name="frmBasico:txtDocumento" class="Normal w113" maxlength="16">
+					<span class="tipAyudaDocumento">
+						<img id="documentoTooltip" class="tooltip " src="{{ url_for('static', filename='bps_first/resources/img/icon/questionBlue.gif') }}" width="14" height="14" alt="question">
+					</span>							
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em><strong>Fecha de Vigencia</strong></th>
+				<td><input id="frmBasico:txtFechaVigencia" type="text" name="frmBasico:txtFechaVigencia" autocomplete="off" class="Normal w275" maxlength="10" onblur="if(!validarFecha(this.value,true)){ this.value=&#39;&#39;;focusCompFirefox(this);}" style="width:70px;text-Align:center;"> 
+					<span class="tipAyudaFechaVigencia" data-tooltip-content="#customTooltipFecha">
+						<img id="fechaVigecnciaTooltip" src="{{ url_for('static', filename='bps_first/resources/img/icon/questionBlue.gif') }}" width="14" height="14" alt="Fecha disponible hasta" class="tooltop">
+					</span>					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div style="padding-top: 20px" align="center">
+						<fieldset>
+							<legend>Ingrese el texto desplegado en la imagen que se
+								encuentra abajo</legend>
+							<table>
+								<tbody><tr>
+									<td><img src="{{ url_for('static', filename='captcha.png') }}?t={{ ts }}" alt="CAPTCHA" class="captcha-img" id="captcha-img" />
+									</td>
+									<td>
+									<img id="refreshTooltip" style="cursor: pointer;" src="{{ url_for('static', filename='bps_first/resources/img/captcha/refresh.gif') }}" class="tooltip " title="Refrescar" class="refresh-icon" onclick="refrescarCaptcha()"></a></td>
+								</tr>
+								<tr>
+									<td style="text-align: center"><input id="captcha" type="text" name="frmBasico:captchaTxt" autocomplete="off" class="Normal w40" maxlength="5" size="5">										
+									</td>
+								</tr>
+							</tbody></table>
+						</fieldset>
+					</div>
+				</td>
+			</tr>					
+			<tr>
+				<th></th>
+				<td><a href="#" onclick="return confirmar();" id="frmBasico:confirmButton" name="frmBasico:confirmButton" class="btnGreenW142 tooltip ">Confirmar</a>				
+				</td>
+			</tr>
+		</tbody></table><span style="display:none;" id="frmBasico:j_idt48"></span>
+			
+		<div class="clear"></div>
+		
+<div class="tooltip_templates" style="display: none;">
+  <span id="customTooltipFecha">
+    <table>
+      <tr>
+        <td>
+          <p style="color: white; padding: 3px 0 5px">
+            Ingrese la fecha “disponible hasta” que se encuentra en su Historia Laboral impresa.<br>
+            La imagen le indica donde encontrarla.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center">
+          <img style="border: 1px solid #1867C4" src="{{ url_for('static', filename='bps_first/resources/img/banner/fechaVigenciaTooltip.png') }}">
+        </td>
+      </tr>
+    </table>
+  </span>
+</div>
+		
+		<script language="javascript" type="text/javascript">
+			autoTab();
+			addMasks();
+			function autoTab(){
+				$j('.codVerificador').autotab('codVerificador');
+			}
+			function addMasks(){
+				AddDateMask('frmBasico:txtFechaVigencia');
+			}			
+		</script>
+<script type="text/javascript">
+$j(function () {
+  // Tooltip con contenido HTML (imagen + texto)
+  var htmlTooltip = $j('#customTooltipFecha').html();
+  $j('#fechaVigecnciaTooltip').tooltipster({
+    content: htmlTooltip,
+    contentAsHTML: true,
+    theme: 'tooltipster-base image-theme',
+    delay: 200,
+    trigger: 'hover',
+    interactive: true
+  });
+
+  // Tooltip con texto para documento
+  $j('#documentoTooltip').tooltipster({
+    content: 'Digite número de documento de identidad o pasaporte, sin puntos ni guiones.',
+    contentAsHTML: false,
+    theme: 'tooltipster-base tooltipster-default',
+    delay: 200,
+    trigger: 'hover'
+  });
+
+  // Tooltip para el botón "Confirmar"
+  $j('#frmBasico\\:confirmButton').tooltipster({
+    content: 'Confirmar',
+    contentAsHTML: false,
+    theme: 'tooltipster-base tooltipster-default',
+    delay: 200,
+    trigger: 'hover'
+  });
+
+  // Tooltip para el ícono de recarga
+  $j('#refreshTooltip').tooltipster({
+    content: 'Solicitar otra imagen',
+    contentAsHTML: false,
+    theme: 'tooltipster-base tooltipster-default',
+    delay: 200,
+    trigger: 'hover'
+  });
+});
+
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search);
+
+  /* --- Código Verificador: 12 dígitos, 3 grupos de 4 --- */
+  const cod = params.get('codigoVerificador') || '';
+  if (cod.length === 12) {
+    document.getElementById('codigo1').value = cod.slice(0, 4);
+    document.getElementById('codigo2').value = cod.slice(4, 8);
+    document.getElementById('codigo3').value = cod.slice(8, 12);
+  }
+
+  /* --- Documento --- */
+  const doc = params.get('documento');
+  if (doc) document.getElementById('documento').value = doc;
+
+  /* --- Fecha de vigencia (YYYY-MM-DD → DD/MM/YYYY) --- */
+  const fecha = params.get('fechaVigencia');
+  if (fecha) {
+    const [y, m, d] = fecha.split('-');
+    document.getElementById('frmBasico:txtFechaVigencia').value = `${d}/${m}/${y}`;
+  }
+
+  /* --- TipoDocAValidar (si lo necesitas en un hidden) --- */
+  const tipo = params.get('tipoDocAValidar');
+  if (tipo) {
+    let hidden = document.getElementById('tipoDoc');
+    if (!hidden) {
+      hidden = document.createElement('input');
+      hidden.type = 'hidden';
+      hidden.id = 'tipoDoc';
+      hidden.name = 'tipoDocAValidar';
+      document.getElementById('frmBasico').appendChild(hidden);
+    }
+    hidden.value = tipo;
+  }
+});
+</script>
+
+<script type="text/javascript">
+function confirmar() {
+  const codigo1 = document.getElementById('codigo1').value;
+  const codigo2 = document.getElementById('codigo2').value;
+  const codigo3 = document.getElementById('codigo3').value;
+  const documento = document.getElementById('documento').value;
+  const fecha = document.getElementById('frmBasico:txtFechaVigencia').value;
+  const captcha = document.getElementById('captcha').value;
+
+  const codigoVerificador = `${codigo1}${codigo2}${codigo3}`;
+
+  // Limpiar errores previos
+  document.getElementById("frmBasico:errores").innerHTML = "";
+  $j("tr").removeClass("error");
+
+  let errores = [];
+  let hayErrores = false;
+
+  // Validaciones
+  if (!codigo1 || !codigo2 || !codigo3) {
+    errores.push("<p><strong>Debe ingresar el código verificador</strong></p>");
+    $j("#codigo1, #codigo2, #codigo3").closest("tr").addClass("error");
+    hayErrores = true;
+  }
+
+  if (!documento) {
+    errores.push("<p><strong>Debe ingresar el documento</strong></p>");
+    $j("#documento").closest("tr").addClass("error");
+    hayErrores = true;
+  }
+
+  if (!fecha) {
+    errores.push("<p><strong>Debe ingresar la fecha de vigencia</strong></p>");
+    $j("#frmBasico\\:txtFechaVigencia").closest("tr").addClass("error");
+    hayErrores = true;
+  }
+
+  if (!captcha || captcha.length !== 5) {
+    errores.push("<p><strong>El texto ingresado no coincide con el texto desplegado en la imagen.</strong></p>");
+    $j("#captcha").closest("tr").addClass("error");
+    hayErrores = true;
+  }
+
+  if (hayErrores) {
+    mostrarErroresHtml(errores);
+    recargarCaptcha();
+    return false;
+  }
+
+  const url = `/descargar?codigoVerificador=${codigoVerificador}&documento=${documento}&fechaVigencia=${fecha}&captcha=${captcha}`;
+
+  fetch(url)
+    .then(response => {
+      if (response.status === 403) {
+        mostrarErrorCaptchaInvalido();
+        recargarCaptcha();
+        return;
+      }
+
+      if (response.status === 404) {
+        mostrarErrorDocumentoInexistente();
+        recargarCaptcha();
+        return;
+      }
+
+      if (response.ok) {
+  response.blob().then(blob => {
+    // === Nombre deseado ===
+    const hoy = new Date().toISOString().slice(0,10).replace(/-/g, ''); // AAAAMMDD
+    const nombreDescarga = `HistoriaLaboral_${documento}_${hoy}.pdf`;
+
+    // Crear enlace temporal
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = nombreDescarga;          // ← aquí pones el nombre dinámico
+    document.body.appendChild(link);         // para Firefox
+    link.click();
+    link.remove();
+    window.URL.revokeObjectURL(link.href);   // liberar memoria
+  });
+}
+    })
+    .catch(err => {
+      console.error("Error de red:", err);
+      mostrarErrorGenerico("Hubo un problema con la conexión.");
+      recargarCaptcha();
+    });
+
+  return false;
+}
+
+function mostrarErroresHtml(errores) {
+  const mensajeHtml = `
+    <div class="msCerti">
+      <div class="Conte mensajeError">
+        ${errores.join("")}
+      </div>
+    </div>
+  `;
+  document.getElementById("frmBasico:errores").innerHTML = mensajeHtml;
+}
+
+function mostrarErrorCaptchaInvalido() {
+  mostrarErroresHtml([
+    "<p><strong>El texto ingresado no coincide con el texto desplegado en la imagen.</strong></p>"
+  ]);
+  $j("#captcha").closest("tr").addClass("error");
+}
+
+function mostrarErrorDocumentoInexistente() {
+  mostrarErroresHtml([
+    "<p><strong>No existe un documento vigente para los datos ingresados.</strong></p>"
+  ]);
+  $j("#codigo1, #codigo2, #codigo3, #documento, #frmBasico\\:txtFechaVigencia").closest("tr").addClass("error");
+}
+
+function mostrarErrorGenerico(msg) {
+  mostrarErroresHtml([`<p><strong>${msg}</strong></p>`]);
+}
+
+function recargarCaptcha() {
+  fetch("/recargar_captcha")
+    .then(() => {
+      const captchaImg = document.getElementById("captcha-img");
+      captchaImg.src = "/static/captcha.png?t=" + Date.now();  // cache-buster
+    });
+}
+
+</script>
+
+<script>
+function refrescarCaptcha() {
+  fetch("/recargar_captcha")
+    .then(() => {
+      const captcha = document.getElementById("captcha-img");
+      captcha.src = "{{ url_for('static', filename='captcha.png') }}?" + new Date().getTime();
+    });
+}
+</script>
+
+<script>
+  function sendIframeHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+
+  // Llamar cuando se carga y cada vez que haya cambios visuales
+  window.onload = sendIframeHeight;
+  window.addEventListener('resize', sendIframeHeight);
+</script>
+
+
+
+
+						</div>
+					</div>
+					
+				</div>
+				<div class="clear"></div>
+			</div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="-7547171275344412142:8528340529185540255" autocomplete="off">
+			
+</form>
+</body></html>

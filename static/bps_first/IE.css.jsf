@@ -1,0 +1,33 @@
+
+/*;;;;;; ESTILOS IE6 / IE8 ;;;;;;*/
+.block .body button { background: url(../resources/img/back/backBtnIE.jpg) top left repeat-x;}
+.block .body button:hover { background: url(../resources/img/back/backBtnIE.jpg)  bottom left repeat-x;}
+.block .foot ul li { background:#CCC; background-image:url(../resources/img/back/backBtnIE.jpg);}
+
+.menuTop { position:relative; z-index:50;}
+.nav li.active ul { border-top:none; border-bottom:2px solid #ccc; border-left:1px solid #ccc; border-right:1px solid #ccc;}
+.nav li.active ul li a { float:left;}
+/*;;;;;; ESTILOS IE6 ;;;;;;*/
+.block .body span.msjAtencion { _background:#FFCFBF url(../resources/img/auxi/atencion.gif) 10px 7px no-repeat;}
+.footer .fono {  _background:url(../resources/img/auxi/fono.gif) left top no-repeat;}
+.mensajes .msLeft .mail small { _background:url(../resources/img/auxi/circle.gif) 2px 0px no-repeat;}
+.header .headerCenter .blockDatos .btnSalir { _background:url(../resources/img/boto/btnSalir.jpg) top left no-repeat;}
+.customSelect { border:1px solid #ccc;}
+
+dt.filtro {background:#F0F2F4; border:1px #ccc solid; color:#7c7c7c;}
+dt.filtro a { position:absolute; top:0px; right:0px;}
+dd.filtro input.btnBusEmpresa { margin-left:10px; width:130px;}
+dd.filtro input.Buscar { line-height:27px; padding:0 10px; border:1px solid #ccc;}
+input.Buscar { line-height:27px; padding:0 10px; border:1px solid #ccc;}
+
+.blockDatos table tr th { text-align:right!important;}
+.blockDatos table tr { text-align:right!important;}
+.blockDatos table tr th span { width:200px;}
+input.placeholder {color: #868686; line-height:26px;}
+
+.styled { _margin-top:10px;}
+
+.mensajesAler .msLeft .mail {_background: url(../resources/img/auxi/alert.gif) top left no-repeat;}
+
+.mensajesAler .msLeft .mail small {_background: url(../resources/img/auxi/circleRed.gif) 2px 0px no-repeat;}
+.agendar .recuerde .recHover { _height:180px;} 

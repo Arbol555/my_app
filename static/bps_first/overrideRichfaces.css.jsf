@@ -1,0 +1,63 @@
+/* Botón de fileupload */
+.rich-fileupload-button-border {
+	border: 0 none;
+	margin: 0;
+}
+
+.rich-fileupload-button-content .rich-fileupload-font {
+	color: #0059B2;
+	font-weight: bold;
+	font-size: 12px;
+	line-height: 27px;
+	text-align: center;
+}
+
+.rich-fileupload-button,  .rich-fileupload-button-light, .rich-fileupload-button-press{
+	height: 27px;
+	width: 116px;
+	margin: 20px 5px;
+	background: #F4F4F4;
+	border: 1px solid #CCC;
+	display: block;
+	border-radius: 3px;
+	line-height: 27px;
+	text-align: center;
+	color: #0059B2;
+	font-weight: bold;
+	padding: 2px;
+}
+
+.rich-fileupload-button-light , .rich-fileupload-button-press{
+	color: #0059B2;
+	text-decoration: none;
+	background: #DADADA;
+}
+
+.fileUploadcleanButtonClass{
+	display:none;
+}
+
+/* FileUpload panel de archivos */
+.rich-fileupload-list-overflow {
+	display:none
+}
+
+
+/* Fileupload toolbar */
+.rich-fileupload-toolbar-decor {
+	background-color: #FFFFFF;
+	border-bottom: 0 none;
+	border-left: 0 none;
+	border-top: 0 none;
+	padding: 0;
+	width: 100%;
+}
+
+.rich-fileupload-list-decor {
+	background-color: #FFFFFF;
+	border: 0 none;
+}
+
+.rich-fileupload-table-td {
+	border-bottom: 0px none;
+}

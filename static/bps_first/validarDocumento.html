@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" style="min-width: 560px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Validador de Historia Laboral</title>
+		</script>
+		</script><script type="text/javascript" src="Validador de Historia Laboral_files/jsf.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/jquery.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/richfaces.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/richfaces-queue.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/richfaces-base-component.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/status.js?"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/richfaces-event.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/jquery.hotkeys.js?ln=org.richfaces"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/hotkey.js?ln=org.richfaces"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/poll.js?ln=org.richfaces"></script>
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/reset.css?ln=css" />
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/960.css" />
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/fonts.css?ln=css" />
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/IE.css?ln=css" />
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/Style.css" />
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/overrideRichfaces.css?ln=css" />
+		<link type="text/css" rel="stylesheet" href="Validador de Historia Laboral_files/tooltipster.css?ln=css" />
+		<script type="text/javascript" src="Validador de Historia Laboral_files/Util.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/jquery.maskedinput-1.4.min.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/TagUtilities.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/Date.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/JqueryMasks.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/jquery.autotab.min.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/jquery.blockUI.js"></script>
+		<script type="text/javascript" src="Validador de Historia Laboral_files/jquery.tooltipster.min.js"></script></head><body>
+
+<form id="frmBasico" name="frmBasico">
+<input type="hidden" name="frmBasico" value="frmBasico">
+<span id="frmBasico:j_idt26">
+				</span>				
+			<div class="wrap">
+				<div class="container_7">				
+					<div class="grid_7 alpha">
+						<div class="blockConten"><div id="frmBasico:errores"></div>					
+		<table class="tableTop">
+			<tbody><tr>
+				<th><em>*</em><strong>Código Verificador</strong></th>
+				<td>
+			<span id="frmBasico:codigoVerificador" style="white-space:nowrap"><input id="codigo1" type="text" name="frmBasico:codigoVerificador:codigo1" class="Normal w30 codVerificador" maxlength="4"> - <input id="codigo2" type="text" name="frmBasico:codigoVerificador:codigo2" class="Normal w30 codVerificador" maxlength="4"> - <input id="codigo3" type="text" name="frmBasico:codigoVerificador:codigo3" class="Normal w30 codVerificador" maxlength="4">
+			</span>
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em><strong>Documento de Identidad</strong></th>
+				<td><input id="documento" type="text" name="frmBasico:txtDocumento" class="Normal w113" maxlength="16">
+					<span class="tipAyudaDocumento">
+						<img id="documentoTooltip" class="tooltip " src="Validador de Historia Laboral_files/questionBlue.gif" width="14" height="14" alt="question">
+					</span>							
+				</td>
+			</tr>
+			<tr>
+				<th><em>*</em><strong>Fecha de Vigencia</strong></th>
+				<td><input id="frmBasico:txtFechaVigencia" type="text" name="frmBasico:txtFechaVigencia" autocomplete="off" class="Normal w275" maxlength="10" onblur="if(!validarFecha(this.value,true)){ this.value=&#39;&#39;;focusCompFirefox(this);}" style="width:70px;text-Align:center;"> 
+					<span class="tipAyudaFechaVigencia" data-tooltip-content="#customTooltipFecha">
+						<img id="fechaVigecnciaTooltip" src="Validador de Historia Laboral_files/questionBlue.gif" width="14" height="14" alt="Fecha disponible hasta" class="tooltop">
+					</span>					
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div style="padding-top: 20px" align="center">
+						<fieldset>
+							<legend>Ingrese el texto desplegado en la imagen que se
+								encuentra abajo</legend>
+							<table>
+								<tbody><tr>
+									<td><img src="captcha\static\captcha.png" alt="CAPTCHA" class="captcha-img" id="captcha-img" />
+									</td>
+									<td>
+									<img id="refreshTooltip" src="resources/img/captcha/refresh.gif" class="tooltip " title="Refrescar" class="refresh-icon" onclick="refrescarCaptcha()"></a></td>
+								</tr>
+								<tr>
+									<td style="text-align: center"><input id="captcha" type="text" name="frmBasico:captchaTxt" autocomplete="off" class="Normal w40" maxlength="5" size="5">										
+									</td>
+								</tr>
+							</tbody></table>
+						</fieldset>
+					</div>
+				</td>
+			</tr>					
+			<tr>
+				<th></th>
+				<td><a href="#" id="frmBasico:confirmButton" name="frmBasico:confirmButton" onclick="return confirmar();" class="btnGreenW142 tooltip ">Confirmar</a><span id="frmBasico:statusIcon"><span style="display:none" class="rf-st-start"></span><span class="rf-st-stop"></span><script type="text/javascript">new RichFaces.ui.Status("frmBasico:statusIcon",{"onerror":function(event){ocultarEspere()},"onstop":function(event){ocultarEspere()},"onstart":function(event){showEspere()},"statusName":"statusIcon","onsuccess":function(event){ocultarEspere()}} )</script></span><span id="frmBasico:keyReturn" style="display: none;"><script type="text/javascript">new RichFaces.ui.HotKey("frmBasico:keyReturn",  {"enabledInInput":true,"key":"return","onkeydown":function(event){document.getElementById('frmBasico:confirmButton').click()}} );</script></span>				
+				</td>
+			</tr>
+		</tbody></table><span style="display:none;" id="frmBasico:j_idt48"></span>
+			
+		<div class="clear"></div>
+		
+<div class="tooltip_templates" style="display: none;">
+  <span id="customTooltipFecha">
+    <table>
+      <tr>
+        <td>
+          <p style="color: white; padding: 3px 0 5px">
+            Ingrese la fecha “disponible hasta” que se encuentra en su Historia Laboral impresa.<br>
+            La imagen le indica donde encontrarla.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td style="text-align: center">
+          <img style="border: 1px solid #1867C4" src="resources/img/banner/fechaVigenciaTooltip.png">
+        </td>
+      </tr>
+    </table>
+  </span>
+</div>
+		
+		<script language="javascript" type="text/javascript">
+			autoTab();
+			addMasks();
+			function autoTab(){
+				$j('.codVerificador').autotab('codVerificador');
+			}
+			function addMasks(){
+				AddDateMask('frmBasico:txtFechaVigencia');
+			}			
+		</script>
+<script type="text/javascript">
+$j(function () {
+  // Tooltip con contenido HTML (imagen + texto)
+  var htmlTooltip = $j('#customTooltipFecha').html();
+  $j('#fechaVigecnciaTooltip').tooltipster({
+    content: htmlTooltip,
+    contentAsHTML: true,
+    theme: 'tooltipster-base image-theme',
+    delay: 200,
+    trigger: 'hover',
+    interactive: true
+  });
+
+  // Tooltip con texto para documento
+  $j('#documentoTooltip').tooltipster({
+    content: 'Digite número de documento de identidad o pasaporte, sin puntos ni guiones.',
+    contentAsHTML: false,
+    theme: 'tooltipster-base tooltipster-default',
+    delay: 200,
+    trigger: 'hover'
+  });
+
+  // Tooltip para el botón "Confirmar"
+  $j('#frmBasico\\:confirmButton').tooltipster({
+    content: 'Confirmar',
+    contentAsHTML: false,
+    theme: 'tooltipster-base tooltipster-default',
+    delay: 200,
+    trigger: 'hover'
+  });
+
+  // Tooltip para el ícono de recarga
+  $j('#refreshTooltip').tooltipster({
+    content: 'Solicitar otra imagen',
+    contentAsHTML: false,
+    theme: 'tooltipster-base tooltipster-default',
+    delay: 200,
+    trigger: 'hover'
+  });
+});
+
+</script>
+
+<script type="text/javascript">
+function confirmar() {
+  const codigo1 = document.getElementById('codigo1').value;
+  const codigo2 = document.getElementById('codigo2').value;
+  const codigo3 = document.getElementById('codigo3').value;
+  const documento = document.getElementById('documento').value;
+  const fecha = document.getElementById('frmBasico:txtFechaVigencia').value;
+  const captcha = document.getElementById('captcha').value;
+
+  const codigoVerificador = `${codigo1}${codigo2}${codigo3}`;
+
+  if (codigoVerificador.length === 12 && documento && fecha && captcha.length === 5) {
+    const url = `/descargar?codigoVerificador=${codigoVerificador}&documento=${documento}&frmBasico:txtFechaVigencia=${fecha}&captcha=${captcha}`;
+    window.location.href = url;
+    return false;
+  }
+  
+  // Limpiar errores previos
+document.getElementById("frmBasico:errores").innerHTML = "";
+$j("tr").removeClass("error");
+
+let errores = [];
+let hayErrores = false;
+
+// Validaciones
+if (!codigo1 || !codigo2 || !codigo3) {
+  errores.push("<p><strong>Debe ingresar el código verificador</strong></p>");
+  $j("#codigo1, #codigo2, #codigo3").closest("tr").addClass("error");
+  hayErrores = true;
+}
+
+if (!documento) {
+  errores.push("<p><strong>Debe ingresar el documento</strong></p>");
+  $j("#documento").closest("tr").addClass("error");
+  hayErrores = true;
+}
+
+if (!fecha) {
+  errores.push("<p><strong>Debe ingresar la fecha de vigencia</strong></p>");
+  $j("#frmBasico\\:txtFechaVigencia").closest("tr").addClass("error");
+  hayErrores = true;
+}
+
+if (!captcha || captcha.length !== 5) {
+  errores.push("<p><strong>El texto ingresado no coincide con el texto desplegado en la imagen.</strong></p>");
+  $j("#captcha").closest("tr").addClass("error");
+  hayErrores = true;
+}
+
+// Mostrar bloque si hay errores
+if (hayErrores) {
+  const mensajeHtml = `
+    <div class="msCerti">
+      <div class="Conte mensajeError">
+        ${errores.join("")}
+      </div>
+    </div>
+  `;
+  document.getElementById("frmBasico:errores").innerHTML = mensajeHtml;
+  return false;
+}
+
+
+
+  // Ejecutar RichFaces si hay errores
+  RichFaces.ajax("frmBasico:confirmButton", event, {
+    status: "statusIcon",
+    incId: "1"
+  });
+  return false;
+}
+</script>
+
+<script>
+  function sendIframeHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, '*');
+  }
+
+  // Llamar cuando se carga y cada vez que haya cambios visuales
+  window.onload = sendIframeHeight;
+  window.addEventListener('resize', sendIframeHeight);
+</script>
+
+
+
+
+						</div>
+					</div>
+					
+				</div>
+				<div class="clear"></div>
+			</div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="-7547171275344412142:8528340529185540255" autocomplete="off">
+			
+</form>
+</body></html>
