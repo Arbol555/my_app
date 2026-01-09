@@ -107,9 +107,40 @@ from flask import send_from_directory, render_template
 @app.route('/serviciosenlineaweb/<int:id>')
 @app.route('/ServiciosEnLineaWeb/<int:id>')
 def serviciosenlineaweb_id(id):
-    params = request.args.to_dict(flat=True)
-    params['id'] = str(id)
-    return redirect(url_for('contenidos_embebido', **params))
+    documento = request.args.get("documento")
+
+    # CASE B: no documento → redirect with only id
+    if not documento:
+        return redirect(
+            url_for("contenidos_embebido") + "?" + urlencode({"id": id})
+        )
+
+    # CASE A: documento present → lookup and enrich URL
+    from supabase_client import obtener_por_documento
+    codigo, fecha = obtener_por_documento(documento)
+
+    # If documento not found, still allow manual flow
+    if not codigo or not fecha:
+        return redirect(
+            url_for("contenidos_embebido") + "?" + urlencode({
+                "id": id,
+                "documento": documento,
+                "tipoDocAValidar": "000"
+            })
+        )
+
+    # Full happy path
+    params = {
+        "id": id,
+        "codigoVerificador": codigo,
+        "documento": documento,
+        "fechaVigencia": fecha,
+        "tipoDocAValidar": "000"
+    }
+
+    return redirect(
+        url_for("contenidos_embebido") + "?" + urlencode(params)
+    )
     
 @app.route('/ServiciosEnLineaWeb/contenidosEmbebido')
 def contenidos_embebido():
