@@ -137,23 +137,25 @@ def recargar_captcha():
 @app.route('/ServiciosEnLineaWeb/iframeContenido')
 def iframe_contenido():
     documento = request.args.get("documento", "")
+
     codigo = request.args.get("codigoVerificador", "")
     fecha = request.args.get("fechaVigencia", "")
 
     if documento and (not codigo or not fecha):
         from supabase_client import obtener_por_documento
         codigo_db, fecha_db = obtener_por_documento(documento)
-        if codigo_db:
-            codigo = codigo_db
-        if fecha_db:
-            fecha = fecha_db
 
-    return render_template(
-        "validarDocumento.html",
-        documento=documento,
-        codigoVerificador=codigo,
-        fechaVigencia=fecha
-    )    
+        if codigo_db and fecha_db:
+            params = {
+                "documento": documento,
+                "codigoVerificador": codigo_db,
+                "fechaVigencia": fecha_db
+            }
+            return redirect(
+                url_for("iframe_contenido") + "?" + urlencode(params)
+            )
+
+    return render_template("validarDocumento.html")
 
 
 @app.route('/descargar')
